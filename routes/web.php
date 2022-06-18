@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// SPA形式にするため、全てのURLで一つのページにアクセスするようにする。
+Route::get('/{any}', function () {
+    return view('index');
+})->where('any', '.*');
